@@ -25,13 +25,10 @@ public class App
          */
         final VaultConfig config = new VaultConfig().build();
         final Vault vault = new Vault(config);
-        try {
         final String value = vault.logical()
                        .read("secret/hello")
                        .getData().get("value");
         System.out.format( "value key in secret/hello is " + value +"\n");
-        } catch(VaultException e) {
-          System.out.println("Exception thrown: " + e);
-        }
+       
     }
 }
