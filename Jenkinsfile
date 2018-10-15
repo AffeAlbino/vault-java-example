@@ -48,7 +48,7 @@ pipeline {
         withCredentials([string(credentialsId: 'role', variable: 'ROLE_ID'),string(credentialsId: 'VAULTTOKEN', variable: 'VAULT_TOKEN')]) {
         sh '''
           set -x
-          curl http://172.17.0.14:3030/teste/vault-java-example/src/master/ca.crt > ca.crt
+          curl https://github.com/AffeAlbino/vault-java-example/blob/master/ca.crt > ca.crt
           export VAULT_CACERT=$(pwd)/ca.crt
           export VAULT_ADDR=https://mewing-shrimp-vault:8200
           export SECRET_ID=$(vault write -field=secret_id -f auth/approle/role/java-example/secret-id)
