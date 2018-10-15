@@ -44,7 +44,7 @@ pipeline {
     }
     stage('Integration Tests') {
       steps {
-      sh 'curl -o vault.zip https://releases.hashicorp.com/vault/0.7.0/vault_0.7.0_linux_arm.zip ; yes | unzip vault.zip'
+      sh 'curl -o vault.zip https://releases.hashicorp.com/vault/0.11.3/vault_0.11.3_linux_arm64.zip ; yes | unzip vault.zip'
         withCredentials([string(credentialsId: 'role', variable: 'ROLE_ID'),string(credentialsId: 'VAULTTOKEN', variable: 'VAULT_TOKEN')]) {
         sh '''
           set -x
